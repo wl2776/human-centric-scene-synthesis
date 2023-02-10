@@ -1,12 +1,15 @@
 cmake_minimum_required(VERSION 3.2)
 project(CVPR2018)
 
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
+message(STATUS "cmake module path ${CMAKE_MODULE_PATH}")
+
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "-Wall -O3")
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
 # OpenCV Settings
-SET(OpenCV_DIR "/home/siyuan/libraries/opencv/opencv-3.1.0/build")
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
@@ -18,7 +21,7 @@ find_package(Boost REQUIRED COMPONENTS system filesystem serialization)
 include_directories(${Boost_INCLUDE_DIRS})
 
 # Ubuntu 16.04 eigen3
-include_directories("/usr/include/eigen3")
+find_package(Eigen3)
 
 ## GTest Settings
 #find_package(GTest REQUIRED)

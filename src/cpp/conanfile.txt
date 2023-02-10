@@ -1,0 +1,7 @@
+[requires]
+opencv/3.4.12
+boost/1.75.0
+cgal/5.5.1
+
+[generators]
+cmake
