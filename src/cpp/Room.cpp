@@ -1,6 +1,8 @@
 //
 // Created by siyuan on 1/19/17.
 //
+#define _USE_MATH_DEFINES
+#include <cmath>
 
 #include "Room.h"
 

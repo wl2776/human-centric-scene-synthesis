@@ -1,6 +1,10 @@
 //
 // Created by siyuan on 2/19/17.
 //
+ 
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
+#include <boost/serialization/vector.hpp>
 
 #include "Evaluator.h"
 

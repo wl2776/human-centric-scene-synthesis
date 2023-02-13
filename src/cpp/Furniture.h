@@ -6,6 +6,7 @@
 #define CVPR2018_FURNITURE_H
 
 // System header files
+#define _USE_MATH_DEFINES
 #include <cmath>
 #include <cassert>
 

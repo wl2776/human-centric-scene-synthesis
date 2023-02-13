@@ -35,7 +35,7 @@ void configure_loggers(std::string workspace_path){
 int main(int argc, char* argv[]) {
     // Path settings
     std::string suncgRoot = "/home/siyuan/data/SUNCG/";
-    std::string workspacePath = "/home/siyuan/projects/release/cvpr2018/";
+    std::string workspacePath = R"-(C:\work\robot_simulation\human-centric-scene-synthesis\src\)-";
     std::string metadataPath = workspacePath + "src/metadata/";
 
     START_EASYLOGGINGPP(argc, argv);
