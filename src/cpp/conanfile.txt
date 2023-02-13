@@ -4,4 +4,5 @@ boost/1.75.0
 cgal/5.5.1
 
 [generators]
-cmake
+CMakeToolchain
+CMakeDeps

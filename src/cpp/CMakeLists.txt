@@ -1,9 +1,7 @@
 cmake_minimum_required(VERSION 3.2)
-project(CVPR2018)
+cmake_policy(SET CMP0091 NEW)
 
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()
-message(STATUS "cmake module path ${CMAKE_MODULE_PATH}")
+project(CVPR2018)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "-Wall -O3")
@@ -29,11 +27,7 @@ find_package(Eigen3)
 
 # CGAL for polygon intersection
 find_package(CGAL QUIET COMPONENTS Core )
-if ( CGAL_FOUND )
-    include( ${CGAL_USE_FILE} )
-    include( CGAL_CreateSingleSourceCGALProgram )
-    # create_single_source_cgal_program( "main.cpp" )
-else()
+if ( NOT CGAL_FOUND )
     message(STATUS "This program requires the CGAL library, and will not be compiled.")
 endif()
 
@@ -55,5 +49,6 @@ set(SOURCE_FILES ${SOURCE_FILES} ${LIB_SOURCE_FILES})
 
 # Add executable and link target
 add_executable(cpp ${SOURCE_FILES})
-target_link_libraries(cpp ${OpenCV_LIBS} ${Boost_SYSTEM_LIBRARY} ${Boost_FILESYSTEM_LIBRARY} ${Boost_SERIALIZATION_LIBRARY})
+target_include_directories(cpp PRIVATE ${cgal_INCLUDE_DIRS})
+target_link_libraries(cpp ${OpenCV_LIBS} ${Boost_SYSTEM_LIBRARY} ${Boost_FILESYSTEM_LIBRARY} ${Boost_SERIALIZATION_LIBRARY} ${cgal_LIBRARIES})
 
